@@ -6,17 +6,22 @@ lock '3.14.0'
 set :application, 'chat-space2'
 
 # どのリポジトリからアプリをpullするかを指定する
-set :repo_url,  'git@github.com:danayeon/chat-space2.git'
+set :repo_url,  'https://github.com/danayeon/chat-space2.git'
+set :branch, 'master'
+set :deploy_to, '/var/www/chat-space2'
+set :rbenv_type, :user
+set :rbenv_ruby, '2.5.1p57'
+set :rbenv_map_bins, %w{rake gem bundle ruby rails}
+set :rbenv_roles, :all
 
 # バージョンが変わっても共通で参照するディレクトリを指定
 set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system', 'public/uploads')
 
-set :rbenv_type, :user
-set :rbenv_ruby, '2.5.1'
+
 
 # どの公開鍵を利用してデプロイするか
 set :ssh_options, auth_methods: ['publickey'],
-                  keys: ['~/.ssh/techcamp.pem'] 
+                  keys: ['~/.ssh/techcamp.pem']
 
 # プロセス番号を記載したファイルの場所
 set :unicorn_pid, -> { "#{shared_path}/tmp/pids/unicorn.pid" }
