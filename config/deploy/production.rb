@@ -1,5 +1,9 @@
-server '13.113.241.250', user: 'ec2-user', roles: %w{app db web}
 
+
+set :stage, :production
+set :rails_env, 'production'
+server '13.113.241.250', user: 'ec2-user',
+roles: %w{web app db}
 set :ssh_options, {
    keys: [File.expand_path('~/.ssh/techcamp.pem')]
 }
