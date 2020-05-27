@@ -66,7 +66,7 @@ gem 'mini_magick'
 gem 'pry-rails'
 
 group :production do
-  gem "unicorn", "~> 5.5.0.1.g6836"
+  gem "unicorn", "~> 5.5.1"
 end
 
 gem 'fog-aws'
